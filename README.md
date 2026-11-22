@@ -8,6 +8,20 @@ It is a line-for-line port of D2 **v0.9.0**, checked against the real Go impleme
 **Live editor:** <https://brianv0.github.io/d2-js/> (enable Pages: Settings → Pages → Deploy from branch → `main` / root).
 The editor is `index.html` + `editor/`, a static page that imports `src/` directly.
 
+## Why use it
+
+- **Small and fast to start.** The default path is about 210 KB gzipped (plus cached fonts) against 8.6 MB for the WebAssembly build,
+  and a diagram renders in tens of milliseconds on a cold start instead of waiting for a 40 MB WASM module to compile.
+  Heavy features (ELK, TALA, LaTeX, sketch, code highlighting) are separate files fetched only when a diagram uses them.
+- **Same output as D2.** Parse, compile, layout and SVG are compared with the real Go D2 on its own test corpus and agree, so diagrams
+  look the same as the `d2` CLI draws them, including all three layout engines.
+- **Easy to host.** Plain ES modules and static files: no WebAssembly, no `eval`, no workers, no `blob:` URLs, so it runs under a strict
+  Content-Security-Policy (`script-src 'self'`) and on any static host such as GitHub Pages.
+- **Runs anywhere JavaScript does.** Browser, Node, Deno, a service worker; there is no native binary or Go toolchain to install.
+- **Hackable.** The code mirrors D2's Go packages file by file with the same names, and the JSON of every stage matches Go's, so you can
+  inspect or reuse the compiled graph and the laid-out diagram (for example to map a clicked shape back to its source line).
+- **Verifiable.** The Go reference harness in `tools/d2ref` makes it cheap to prove a change still matches D2, and to port the next D2 release.
+
 ## What works
 
 | | |
