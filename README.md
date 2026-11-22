@@ -3,7 +3,7 @@
 [D2](https://d2lang.com) in plain JavaScript. It parses, compiles, lays out and renders D2 diagrams to SVG in the browser or Node, with no
 WebAssembly. It is a port of D2 v0.9.0 and is checked against the Go implementation on D2's own test corpus.
 
-Live editor: <https://triode.co/d2-js/> (the page is `index.html`; enable Pages from branch `main`, root folder).
+Live editor: <https://brianv0.github.io/d2-js/> (the page is `index.html`; enable Pages from branch `main`, root folder).
 
 ## Features
 
