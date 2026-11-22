@@ -7,7 +7,7 @@
 // engine.js asks `stageFn(pkg, name)` for the function of a Go package by its camelCase Go name (`placement.Prescale` is
 // `stageFn('placement', 'prescale')`). The packages that are ported before the engine (grouping, proximity, trees, hierarchy, packing,
 // labeling, quality) are registered by engine.js itself; `placement` and `routing` are looked up here in the modules below the first time the
-// engine is imported (top-level await: a module that does not exist yet is skipped, anything else that goes wrong in a module that exists
+// engine is imported (static imports; a module that does not exist yet used to be skipped, anything else that goes wrong in a module that exists
 // is an error). A function that no module defines is a NotPorted error that names the package, the function and (once the pipeline driver
 // knows it) the stage, so the full pipeline lights up by itself when the modules land.
 //
@@ -68,41 +68,14 @@ export function hasStageFn(pkg, name) {
   return (packages.get(pkg) ?? []).some((ns) => typeof ns[name] === 'function');
 }
 
-// The modules that may hold the stage functions of the packages that were ported by other tasks: tried in this order, every one that exists is
-// registered (an export defined by an earlier one wins).
-export const STAGE_MODULES = {
-  placement: ['./placement/index.js'],
-  routing: ['./routing/index.js'],
-};
+// `placement` and `routing` are plain static imports: bundlers can follow them (a computed `import(name)` cannot be bundled, which left
+// TALA without its stages in a minified build). Registered here, once, when the engine first imports this module.
+import * as placement from './placement/index.js';
+import * as routing from './routing/index.js';
 
-/** whether `e` says that the module itself is missing (Node: ERR_MODULE_NOT_FOUND; browsers: a failed fetch of the module script) */
-function isMissingModule(e, specifier) {
-  if (e && e.code === 'ERR_MODULE_NOT_FOUND') return String(e.message).includes(specifier.replace(/^\.\//, ''));
-  return e instanceof TypeError && /fetch|import|load/i.test(String(e.message));
-}
+export const STAGE_MODULES = { placement: ['./placement/index.js'], routing: ['./routing/index.js'] };
+registerPackage('placement', placement);
+registerPackage('routing', routing);
 
-async function tryImport(specifier) {
-  try {
-    return await import(specifier);
-  } catch (e) {
-    if (isMissingModule(e, specifier)) return null;
-    throw e;
-  }
-}
-
-const loaded = {};
-for (const [pkg, specifiers] of Object.entries(STAGE_MODULES)) {
-  loaded[pkg] = [];
-  const found = [];
-  for (const specifier of specifiers) {
-    const ns = await tryImport(specifier);
-    if (ns !== null) {
-      found.push(ns);
-      loaded[pkg].push(specifier);
-    }
-  }
-  for (const ns of found.reverse()) registerPackage(pkg, ns); // the first module of the list ends up first
-}
-
-/** the modules that were found for each package (diagnostics) */
-export const loadedModules = loaded;
+/** the modules registered for each package (diagnostics) */
+export const loadedModules = { placement: ['./placement/index.js'], routing: ['./routing/index.js'] };

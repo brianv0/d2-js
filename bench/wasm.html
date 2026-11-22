@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>bench: @d2lang/d2 (WASM)</title>
+<!-- the runner serves the package's dist/browser/index.js at ./wasm/index.js -->
+<script type="module">
+window.adapter = {
+  name: '@d2lang/d2 (WASM)', d2: null,
+  async load() {
+    if (this.d2) return;
+    const { D2 } = await import('./wasm/index.js');
+    this.d2 = new D2();
+  },
+  async run(text, layout) {
+    const r = await this.d2.compile(text, { layout });
+    return (await this.d2.render(r.diagram, r.renderOptions)).length;
+  },
+};
+await import('./bench.js');
+</script>

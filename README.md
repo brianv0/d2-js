@@ -13,6 +13,9 @@ Live editor: <https://brianv0.github.io/d2-js/> (the page is `index.html`; enabl
 - Small: about 210 KB gzipped for the default path, against 8.6 MB for D2's WASM build. ELK, TALA, LaTeX, sketch and code
   highlighting are separate files loaded only when a diagram needs them.
 
+Measured in Chromium, the first diagram appears in about 0.2 s from page load (the WASM build: 2.2 s), and warm renders are 1.6 to 2.6 times
+faster than the WASM build; see [docs/BENCHMARKS.md](docs/BENCHMARKS.md).
+
 Not ported: animated multi-board SVG, the ASCII renderer, PNG/GIF/PDF export, `d2lsp`, `d2oracle`.
 
 ## Use

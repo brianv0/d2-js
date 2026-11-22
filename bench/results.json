@@ -1,0 +1,683 @@
+{
+ "env": {
+  "chromium": "157.0.8103.78",
+  "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+  "cpus": 4,
+  "node": "v22.23.5",
+  "platform": "linux"
+ },
+ "targets": [
+  {
+   "label": "d2-js (as shipped: unbundled ES modules)",
+   "cold": {
+    "loadMs": 56.60000000055879,
+    "firstRenderMs": 102.6000000005588,
+    "sinceNavigationMs": 223.20000000018626,
+    "requests": 51,
+    "encodedBytes": 541951,
+    "decodedBytes": 1857785,
+    "reps": 5
+   },
+   "warm": [
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 102.09999999962747,
+     "svgBytes": 10706,
+     "medianMs": 13.900000000372529,
+     "minMs": 8.700000000186265,
+     "runs": 9
+    },
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 234.5,
+     "svgBytes": 10649,
+     "medianMs": 21.09999999962747,
+     "minMs": 13.600000000558794,
+     "runs": 9
+    },
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 447.20000000018626,
+     "svgBytes": 10666,
+     "medianMs": 119,
+     "minMs": 97.6000000005588,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 21.600000000558794,
+     "svgBytes": 15485,
+     "medianMs": 16.90000000037253,
+     "minMs": 9.400000000372529,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 29.200000000186265,
+     "svgBytes": 15318,
+     "medianMs": 21.200000000186265,
+     "minMs": 13.599999999627471,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 657.7999999998137,
+     "svgBytes": 14855,
+     "medianMs": 428.6000000005588,
+     "minMs": 359.69999999925494,
+     "runs": 7
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 37.10000000055879,
+     "svgBytes": 17778,
+     "medianMs": 18.399999999441206,
+     "minMs": 13,
+     "runs": 9
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 34,
+     "svgBytes": 17570,
+     "medianMs": 27.90000000037253,
+     "minMs": 20.799999999813735,
+     "runs": 9
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 525.0999999996275,
+     "svgBytes": 17439,
+     "medianMs": 263.9499999997206,
+     "minMs": 234.8999999994412,
+     "runs": 8
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 13.200000000186265,
+     "svgBytes": 14110,
+     "medianMs": 8.100000000558794,
+     "minMs": 6.900000000372529,
+     "runs": 9
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 22.5,
+     "svgBytes": 14869,
+     "medianMs": 17.200000000186265,
+     "minMs": 12.399999999441206,
+     "runs": 9
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 972.4000000003725,
+     "svgBytes": 13203,
+     "medianMs": 974.1999999992549,
+     "minMs": 955.1000000005588,
+     "runs": 5
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 139.29999999981374,
+     "svgBytes": 72531,
+     "medianMs": 46.5,
+     "minMs": 40,
+     "runs": 9
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 75.6000000005588,
+     "svgBytes": 71905,
+     "medianMs": 55.40000000037253,
+     "minMs": 44.799999999813735,
+     "runs": 9
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 2564,
+     "svgBytes": 71391,
+     "medianMs": 1792.5,
+     "minMs": 1710.6000000005588,
+     "runs": 3
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 46.299999999813735,
+     "svgBytes": 22241,
+     "medianMs": 32.5,
+     "minMs": 28.09999999962747,
+     "runs": 9
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 51.10000000055879,
+     "svgBytes": 22245,
+     "medianMs": 38.5,
+     "minMs": 29.899999999441206,
+     "runs": 9
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 131,
+     "svgBytes": 22345,
+     "medianMs": 84,
+     "minMs": 80.19999999925494,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 74.29999999981374,
+     "svgBytes": 89110,
+     "medianMs": 37.200000000186265,
+     "minMs": 30.40000000037253,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 60.299999999813735,
+     "svgBytes": 89794,
+     "medianMs": 50.799999999813735,
+     "minMs": 38.59999999962747,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 1119.2000000001863,
+     "svgBytes": 88705,
+     "medianMs": 980.9999999995343,
+     "minMs": 945.1000000005588,
+     "runs": 4
+    }
+   ]
+  },
+  {
+   "label": "d2-js (minified, code-split bundle)",
+   "cold": {
+    "loadMs": 37.59999999962747,
+    "firstRenderMs": 104.6000000005588,
+    "sinceNavigationMs": 197.40000000037253,
+    "requests": 18,
+    "encodedBytes": 405813,
+    "decodedBytes": 1180615,
+    "reps": 5
+   },
+   "warm": [
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 122.8999999994412,
+     "svgBytes": 10706,
+     "medianMs": 16.200000000186265,
+     "minMs": 10.900000000372529,
+     "runs": 9
+    },
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 186.30000000074506,
+     "svgBytes": 10649,
+     "medianMs": 16.5,
+     "minMs": 11.899999999441206,
+     "runs": 9
+    },
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 327.09999999962747,
+     "svgBytes": 10666,
+     "medianMs": 105.5,
+     "minMs": 93.59999999962747,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 17,
+     "svgBytes": 15485,
+     "medianMs": 18.90000000037253,
+     "minMs": 8.399999999441206,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 27.799999999813735,
+     "svgBytes": 15318,
+     "medianMs": 22.600000000558794,
+     "minMs": 17.200000000186265,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 700,
+     "svgBytes": 14855,
+     "medianMs": 398.34999999962747,
+     "minMs": 373.70000000018626,
+     "runs": 6
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 36.799999999813735,
+     "svgBytes": 17778,
+     "medianMs": 21.100000000558794,
+     "minMs": 13,
+     "runs": 9
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 45.5,
+     "svgBytes": 17570,
+     "medianMs": 27.5,
+     "minMs": 19.100000000558794,
+     "runs": 9
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 532.1999999992549,
+     "svgBytes": 17439,
+     "medianMs": 276.5,
+     "minMs": 240.5,
+     "runs": 8
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 9.199999999254942,
+     "svgBytes": 14110,
+     "medianMs": 11.200000000186265,
+     "minMs": 8,
+     "runs": 9
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 21.90000000037253,
+     "svgBytes": 14869,
+     "medianMs": 17.09999999962747,
+     "minMs": 13.799999999813735,
+     "runs": 9
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 887.5999999996275,
+     "svgBytes": 13203,
+     "medianMs": 920.2999999998137,
+     "minMs": 852.5,
+     "runs": 5
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 129.5,
+     "svgBytes": 72531,
+     "medianMs": 38.5,
+     "minMs": 29.40000000037253,
+     "runs": 9
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 63.700000000186265,
+     "svgBytes": 71905,
+     "medianMs": 68.29999999981374,
+     "minMs": 51.09999999962747,
+     "runs": 9
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 2190.9000000003725,
+     "svgBytes": 71391,
+     "medianMs": 1676.7000000001863,
+     "minMs": 1629.1000000005588,
+     "runs": 3
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 45.89999999944121,
+     "svgBytes": 22241,
+     "medianMs": 23,
+     "minMs": 20,
+     "runs": 9
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 35.19999999925494,
+     "svgBytes": 22245,
+     "medianMs": 34.40000000037253,
+     "minMs": 26.399999999441206,
+     "runs": 9
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 132.09999999962747,
+     "svgBytes": 22345,
+     "medianMs": 90,
+     "minMs": 69.6000000005588,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 74.5,
+     "svgBytes": 89110,
+     "medianMs": 38.40000000037253,
+     "minMs": 27.09999999962747,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 55,
+     "svgBytes": 89794,
+     "medianMs": 45.90000000037253,
+     "minMs": 36.200000000186265,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 1298.0999999996275,
+     "svgBytes": 88705,
+     "medianMs": 977.3500000000931,
+     "minMs": 784.5999999996275,
+     "runs": 4
+    }
+   ]
+  },
+  {
+   "label": "@d2lang/d2 0.1.34 (WASM)",
+   "cold": {
+    "loadMs": 1288.2999999998137,
+    "firstRenderMs": 744.7000000001863,
+    "sinceNavigationMs": 2228.7000000001863,
+    "requests": 6,
+    "encodedBytes": 8564314,
+    "decodedBytes": 11538426,
+    "reps": 5
+   },
+   "warm": [
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 830.0999999996275,
+     "svgBytes": 10701,
+     "medianMs": 32.09999999962747,
+     "minMs": 20.40000000037253,
+     "runs": 5
+    },
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 130.20000000018626,
+     "svgBytes": 10644,
+     "medianMs": 23.200000000186265,
+     "minMs": 18.200000000186265,
+     "runs": 9
+    },
+    {
+     "case": "hello",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 801.8999999994412,
+     "svgBytes": 10661,
+     "medianMs": 242.40000000037253,
+     "minMs": 188.70000000018626,
+     "runs": 5
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 30,
+     "svgBytes": 15480,
+     "medianMs": 28.200000000186265,
+     "minMs": 24.600000000558794,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 33.200000000186265,
+     "svgBytes": 15313,
+     "medianMs": 30.899999999441206,
+     "minMs": 24.40000000037253,
+     "runs": 9
+    },
+    {
+     "case": "microservices",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 994.2999999998137,
+     "svgBytes": 14850,
+     "medianMs": 1186.0999999996275,
+     "minMs": 922.3999999994412,
+     "runs": 5
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 55.700000000186265,
+     "svgBytes": 17773,
+     "medianMs": 44.09999999962747,
+     "minMs": 33.10000000055879,
+     "runs": 9
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 49.89999999944121,
+     "svgBytes": 17565,
+     "medianMs": 44.90000000037253,
+     "minMs": 37.5,
+     "runs": 9
+    },
+    {
+     "case": "containers",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 821.2999999998137,
+     "svgBytes": 17434,
+     "medianMs": 675.4000000003725,
+     "minMs": 600.7000000001863,
+     "runs": 5
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "dagre",
+     "firstMs": 27.799999999813735,
+     "svgBytes": 14105,
+     "medianMs": 22,
+     "minMs": 17.59999999962747,
+     "runs": 9
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "elk",
+     "firstMs": 33.5,
+     "svgBytes": 14864,
+     "medianMs": 23.59999999962747,
+     "minMs": 20.299999999813735,
+     "runs": 9
+    },
+    {
+     "case": "dense",
+     "kind": "small",
+     "layout": "tala",
+     "firstMs": 1923,
+     "svgBytes": 13198,
+     "medianMs": 1987,
+     "minMs": 1836.7000000001863,
+     "runs": 3
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 117.79999999981374,
+     "svgBytes": 72526,
+     "medianMs": 95,
+     "minMs": 84.1000000005588,
+     "runs": 9
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 96,
+     "svgBytes": 71900,
+     "medianMs": 112.79999999981374,
+     "minMs": 104.09999999962747,
+     "runs": 9
+    },
+    {
+     "case": "queue_workers",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 4027,
+     "svgBytes": 71386,
+     "medianMs": 4886.100000000559,
+     "minMs": 4024.2999999998137,
+     "runs": 3
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 81.1000000005588,
+     "svgBytes": 22236,
+     "medianMs": 61.700000000186265,
+     "minMs": 59.90000000037253,
+     "runs": 9
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 63.5,
+     "svgBytes": 22240,
+     "medianMs": 79.59999999962747,
+     "minMs": 59.69999999925494,
+     "runs": 9
+    },
+    {
+     "case": "jupyter_aws_eks",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 190.5,
+     "svgBytes": 22340,
+     "medianMs": 224.90000000037253,
+     "minMs": 167.70000000018626,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "dagre",
+     "firstMs": 92.6000000005588,
+     "svgBytes": 89105,
+     "medianMs": 74.5,
+     "minMs": 72.8999999994412,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "elk",
+     "firstMs": 112.30000000074506,
+     "svgBytes": 89789,
+     "medianMs": 95.3999999994412,
+     "minMs": 77.90000000037253,
+     "runs": 9
+    },
+    {
+     "case": "ross_overview",
+     "kind": "real-world",
+     "layout": "tala",
+     "firstMs": 1948.5,
+     "svgBytes": 88700,
+     "medianMs": 2090.5999999996275,
+     "minMs": 1854.7000000001863,
+     "runs": 3
+    }
+   ]
+  }
+ ]
+}

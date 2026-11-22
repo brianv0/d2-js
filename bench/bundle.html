@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><title>bench: d2-js (bundle)</title>
+<!-- the runner serves --bundle <dir> at ./bundle/ (an esbuild --splitting build of src/d2lib.js + src/d2svg.js with fonts/, lexers/, patterns/ copied next to it) -->
+<script src="../vendor/markdown-it.min.js"></script>
+<script type="module">
+window.adapter = {
+  name: 'd2-js (bundle)', lib: null,
+  async load() {
+    if (this.lib) return;
+    const m = await import('./bundle/entry.js');
+    await m.init({ markdownit: window.markdownit });
+    this.lib = m;
+  },
+  async run(text, layout) {
+    const { diagram, err } = await this.lib.compile(text, { layout, utf16: true, inputPath: 'x.d2' });
+    if (err) throw new Error(err.message);
+    return (await this.lib.renderAsync(diagram, { fonts: 'embed' })).length;
+  },
+};
+await import('./bench.js');
+</script>

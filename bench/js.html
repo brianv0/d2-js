@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><title>bench: d2-js</title>
+<script src="../vendor/markdown-it.min.js"></script>
+<script type="module">
+window.adapter = {
+  name: 'd2-js', lib: null,
+  async load() {
+    if (this.lib) return;
+    const [{ init, compile }, { renderAsync }] = await Promise.all([import('../src/d2lib.js'), import('../src/d2svg.js')]);
+    await init({ markdownit: window.markdownit });
+    this.lib = { compile, renderAsync };
+  },
+  async run(text, layout) {
+    const { diagram, err } = await this.lib.compile(text, { layout, utf16: true, inputPath: 'x.d2' });
+    if (err) throw new Error(err.message);
+    return (await this.lib.renderAsync(diagram, { fonts: 'embed' })).length;
+  },
+};
+await import('./bench.js');
+</script>
