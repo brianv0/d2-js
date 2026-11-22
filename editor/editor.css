@@ -1,0 +1,22 @@
+:root { color-scheme: light dark; --bg:#fff; --fg:#1f2328; --mut:#656d76; --bd:#d0d7de; --pane:#f6f8fa; --acc:#0969da; --err:#cf222e; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --fg:#e6edf3; --mut:#8d96a0; --bd:#30363d; --pane:#161b22; --acc:#4493f8; --err:#ff7b72; } }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; background: var(--bg); color: var(--fg); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding: 10px 16px; border-bottom: 1px solid var(--bd); }
+h1 { margin: 0; font-size: 17px; } h1 span { color: var(--mut); font-weight: 400; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.bar label { display: flex; align-items: center; gap: 6px; color: var(--mut); }
+.bar select, .bar input[type=number], .bar button { font: inherit; color: var(--fg); background: var(--pane); border: 1px solid var(--bd); border-radius: 6px; padding: 4px 8px; }
+.bar input[type=number] { width: 64px; } .bar button { cursor: pointer; } .bar button:disabled { opacity: .5; cursor: default; }
+main { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(280px, 42%) 1fr; }
+.pane { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+.pane + .pane { border-left: 1px solid var(--bd); }
+textarea { flex: 1; width: 100%; resize: none; border: 0; outline: 0; padding: 14px 16px; background: var(--bg); color: var(--fg); font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; tab-size: 2; }
+.out { background: var(--pane); }
+.stage { flex: 1; min-height: 0; overflow: auto; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.stage img { max-width: 100%; max-height: 100%; background: #fff; border-radius: 6px; box-shadow: 0 0 0 1px var(--bd); }
+.err { margin: 0; padding: 10px 16px; color: var(--err); background: var(--bg); border-top: 1px solid var(--bd); white-space: pre-wrap; max-height: 30%; overflow: auto; font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+.status { padding: 6px 16px; color: var(--mut); border-top: 1px solid var(--bd); font-size: 12px; }
+footer { padding: 6px 16px; color: var(--mut); border-top: 1px solid var(--bd); font-size: 12px; } footer a { color: var(--acc); }
+@media (max-width: 760px) { main { grid-template-columns: 1fr; grid-template-rows: 42% 1fr; } .pane + .pane { border-left: 0; border-top: 1px solid var(--bd); } }

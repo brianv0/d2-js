@@ -1,0 +1,19 @@
+{
+  "name": "d2-js",
+  "version": "0.1.0",
+  "description": "D2 (the diagram language) in plain JavaScript: parse, compile, dagre / ELK / TALA layout, SVG rendering. No WebAssembly.",
+  "type": "module",
+  "license": "MPL-2.0",
+  "main": "src/d2lib.js",
+  "exports": {
+    ".": "./src/d2lib.js",
+    "./svg": "./src/d2svg.js"
+  },
+  "files": ["src", "LICENSE", "THIRD_PARTY_NOTICES.md"],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}

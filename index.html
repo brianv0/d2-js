@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>d2-js live editor</title>
+<meta name="description" content="D2 diagrams in plain JavaScript: parse, compile, dagre / ELK / TALA layout and SVG rendering in your browser. No WebAssembly.">
+<link rel="stylesheet" href="editor/editor.css">
+</head>
+<body>
+<header>
+  <h1>d2-js <span>live editor</span></h1>
+  <div class="bar">
+    <label>Example <select id="example"></select></label>
+    <label>Layout
+      <select id="layout">
+        <option value="dagre">dagre</option>
+        <option value="elk">ELK</option>
+        <option value="tala">TALA</option>
+      </select>
+    </label>
+    <label>Theme <select id="theme"></select></label>
+    <label class="chk"><input type="checkbox" id="sketch"> Sketch</label>
+    <label>Pad <input type="number" id="pad" value="100" min="0" max="400" step="10"></label>
+    <button id="download" disabled>Download SVG</button>
+    <button id="share">Copy link</button>
+  </div>
+</header>
+<main>
+  <section class="pane">
+    <textarea id="src" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="D2 source"></textarea>
+  </section>
+  <section class="pane out">
+    <div id="stage" class="stage"><img id="img" alt="Rendered diagram" hidden></div>
+    <pre id="err" class="err" hidden></pre>
+    <div id="status" class="status">loading…</div>
+  </section>
+</main>
+<footer>
+  JavaScript port of <a href="https://d2lang.com">D2</a> v0.9.0 (MPL-2.0) · output matches Go D2 on D2's own test corpus (exceptions listed in the docs) ·
+  <a href="https://github.com/brianv0/d2-js">source</a>
+</footer>
+<noscript>This page needs JavaScript.</noscript>
+<script src="vendor/markdown-it.min.js"></script>
+<script type="module" src="editor/editor.js"></script>
+</body>
+</html>

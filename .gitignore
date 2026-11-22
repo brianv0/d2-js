@@ -1,0 +1,6 @@
+node_modules/
+# generated test inputs (see the generator named at the top of each tools/d2ref script)
+tools/d2ref/*.jsonl
+!tools/d2ref/extra*.jsonl
+!tools/d2ref/small.jsonl
+!tools/d2ref/one.jsonl
